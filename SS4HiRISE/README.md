@@ -20,14 +20,14 @@ SECTION 1: OVERIVIEW
    images using ISIS3 and the WINDOWS version of SOCET SETv5.6.0 (SOCET SET
    is a registered trademark of BAE).
 
-   The site is divided into the three zip files for download:
+   The site is divided into the three zip areas for download:
 
-    1) DATA.zip (~1 GB)
-          DATA.zip contains global MOLA gridded dataset as ISIS3 cubes, and
+    1) Data\ 
+          Data.zip contains global MOLA gridded dataset as ISIS3 cubes, and
           procedures to download the MOLA Track (PEDR) data.  This is a one-
           time download -- independent of software or tutorial versions.
 
-    2) SOFTWARE_JULY2015.zip
+    2) Software\
           SOFTWARE_JULY2015.zip contains our in-house software, PERL scripts
           and the SOCET SET plugin sensor needed for HiRISE stereoprocessing
           using SOCET SET v5.6.0 under WINDOWS, and ISIS3.4.9. 
@@ -36,8 +36,8 @@ SECTION 1: OVERIVIEW
           software (instructions below), and install the GNU FORTRAN and C
           compilers on your ISIS processing machine.
 
-    3) TUTORIALS_JULY2015.zip
-          TUTORIALS_JULY2015.zip contains a tutorial and PowerPoint 
+    3) Tutorials\
+          PDFs and TUTORIALS_JULY2015.zip contains the tutorial 
           presentations describing our stereo processing procedures using 
           HiRISE images, ISIS3 and SOCET SET v5.6.0 
 
@@ -56,7 +56,7 @@ Section 2: DISTRIBUTION FILES CONTENTS
    for details on software use and procedures for stereo processing.
 
    --------
-   DATA.zip
+   Data
    --------
       GLOBAL_MOLA_DEMS/ --> (data used by hidata4socet.pl)
          mola_128ppd_north_simp_88lat.isis3.cub.gz
@@ -68,7 +68,7 @@ Section 2: DISTRIBUTION FILES CONTENTS
          Example_mola_files.txt
 
    ---------------------
-   SOFTWARE_JULY2015.zip
+   Software
    ---------------------
 
       ISIS_MACHINE/
@@ -152,11 +152,11 @@ Section 2: DISTRIBUTION FILES CONTENTS
                ortho2isis3.cpp
 
    ----------------------
-   TUTORIALS_JULY2015.zip
+   Tutorials
    ----------------------
       HiRISE_StereoProcessing_Tutorial_July_2015.pdf
-      SOCETSET_for_HiRISE_July_2015_Intro.pptx
-      SOCETSET_for_HiRISE_July_2015_Training.pptx
+      SOCETSET_for_HiRISE_July_2015_Intro.pdf
+      SOCETSET_for_HiRISE_July_2015_Training.pdf
       
 ===============================
 SECTION 3: ISIS MACHINE SET-UP
