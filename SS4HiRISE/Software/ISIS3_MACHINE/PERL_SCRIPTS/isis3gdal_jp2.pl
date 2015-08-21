@@ -1,7 +1,7 @@
 #!/usr/bin/perl -s
 ###############################################################################
 #
-#_TITLE  isis3gdal_jp2.pl - Simple scirpt to create a GeoJpeg2000 
+#_TITLE  isis3gdal_jp2.pl - Simple script to create a GeoJpeg2000 
 #                             from an ISIS3 file.
 #
 # Requires ISIS 3 and gdal_translate with JP2KAK encoder
