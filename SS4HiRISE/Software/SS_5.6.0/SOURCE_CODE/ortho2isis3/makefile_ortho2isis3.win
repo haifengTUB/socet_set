@@ -1,0 +1,52 @@
+# Makefile for dtm Developer's Kit examples
+# Microsoft Visual Studio 2008
+#
+# nmake NODEBUG=1 /f makefile.win
+# nmake /f makefile.win
+
+# Path to Socet Set Developer's Kit and include directories
+# This probably needs to be changed for your environment
+!if "$(DEV_KIT_PATH)" == "" 
+DEV_KIT_PATH=C:\SOCET_SET_5.6.0\devkit
+!endif
+
+# This is common stuff like names of libs
+!include <$(DEV_KIT_PATH)\include\include_dev\makefile.win>
+
+ORTHO2ISIS3_COMPILE_FLAGS = \
+	$(SS_COMPILE_FLAGS)
+
+ORTHO2ISIS3_EXE_NAME = \
+	$(OUTDIR)\ortho2isis3.exe
+    
+ORTHO2ISIS3_LINK_FLAGS = \
+	$(SS_LINK_FLAGS) \
+	/subsystem:console
+
+ORTHO2ISIS3_LINK_LIBS = \
+	$(SS_LIB_SENS) \
+	$(SS_LIB_IMG) \
+	$(SS_LIB_KEY) \
+	$(SS_LIB_PROJECT) \
+	$(SS_LIB_UTIL)
+
+all : $(OUTDIR) $(ORTHO2ISIS3_EXE_NAME) embed_manifest
+
+embed_manifest : $(ORTHO2ISIS3_EXE_NAME)
+	$(mt) -manifest "$(ORTHO2ISIS3_EXE_NAME).manifest" "-outputresource:$(ORTHO2ISIS3_EXE_NAME);1"
+
+$(OUTDIR) :
+	mkdir $@
+
+$(ORTHO2ISIS3_EXE_NAME) : $(OUTDIR)\ortho2isis3.obj $(OUTDIR)\export_subroutines.obj
+	$(link) $(ORTHO2ISIS3_LINK_FLAGS) $(ORTHO2ISIS3_LINK_LIBS) /OUT:$@ $**
+
+$(OUTDIR)\ORTHO2ISIS3.obj : ortho2isis3.cpp
+	$(cc) $(ORTHO2ISIS3_COMPILE_FLAGS) /Fo$@ $**
+
+$(OUTDIR)\EXPORT_SUBROUTINES.obj : ..\export_subs\export_subroutines.cpp
+    $(cc) $(ORTHO2ISIS3_COMPILE_FLAGS) /Fo$@ $**
+    
+clean :
+	$(CLEANUP)
+	del vc90.pdb

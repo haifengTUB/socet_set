@@ -1,0 +1,52 @@
+# Makefile for dtm Developer's Kit examples
+# Microsoft Visual Studio 2008
+#
+# nmake NODEBUG=1 /f makefile.win
+# nmake /f makefile.win
+
+# Path to Socet Set Developer's Kit and include directories
+# This probably needs to be changed for your environment
+!if "$(DEV_KIT_PATH)" == "" 
+DEV_KIT_PATH=C:\SOCET_SET_5.6.0\devkit
+!endif
+
+# This is common stuff like names of libs
+!include <$(DEV_KIT_PATH)\include\include_dev\makefile.win>
+
+CALCORTHOBDRY_COMPILE_FLAGS = \
+	$(SS_COMPILE_FLAGS)
+    
+CALCORTHOBDRY_EXE_NAME = \
+	$(OUTDIR)\calcOrthoBdry.exe
+
+CALCORTHOBDRY_LINK_FLAGS = \
+	$(SS_LINK_FLAGS) \
+	/subsystem:console
+
+CALCORTHOBDRY_LINK_LIBS = \
+	$(SS_LIB_DTM) \
+	$(SS_LIB_DTMACCESS) \
+	$(SS_LIB_DTMUTIL) \
+	$(SS_LIB_KEY) \
+	$(SS_LIB_PROJECT) \
+	$(SS_LIB_COORD) \
+	$(SS_LIB_UTIL)
+
+all : $(OUTDIR) $(CALCORTHOBDRY_EXE_NAME) embed_manifest
+
+embed_manifest : $(CALCORTHOBDRY_EXE_NAME)
+	$(mt) -manifest "$(CALCORTHOBDRY_EXE_NAME).manifest" "-outputresource:$(CALCORTHOBDRY_EXE_NAME);1"
+
+$(OUTDIR) :
+	mkdir $@
+
+$(CALCORTHOBDRY_EXE_NAME) : $(OUTDIR)\calcOrthoBdry.obj
+	$(link) $(CALCORTHOBDRY_LINK_FLAGS) $(CALCORTHOBDRY_LINK_LIBS) /OUT:$@ $**
+
+$(OUTDIR)\CALCORTHOBDRY.obj : calcOrthoBdry.cpp
+	$(cc) $(CALCORTHOBDRY_COMPILE_FLAGS) /Fo$@ $**
+
+clean :
+	$(CLEANUP)
+	del vc90.pdb
+    

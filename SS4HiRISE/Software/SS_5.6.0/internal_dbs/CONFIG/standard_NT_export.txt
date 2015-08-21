@@ -1,0 +1,414 @@
+config_file b
+#
+#
+#  This is a SOCET SET configuration file.  This file may be editted
+#  by the user to customize the Workstation Controller main window
+#  pulldown layout.  For example, the user may use this file to:
+#
+#    - Change the labels on the Wc buttons
+#    - Re-arrange the Wc pull-downs
+#    - Add new buttons to the Wc pull-downs
+#    - Permanently dim certain Wc buttons
+#    - Remove buttons from the Wc pull-downs
+#
+#
+#  The following rules describe the syntax of this file:
+#
+#    - comment lines begin with a # 
+#    - the first line must contain 'config_file b'
+#    - the capitalization convention is:
+#        ENVIRONMENT VARIABLES ARE UPPERCASE AND MUST
+#           BE ENCLOSED BY PARENTHESES ( e.g. $(EXEDIR) )
+#        executable binary file names are lowercase
+#        Wc Keywords (E.g. Load_Extr) Are Initial Caps
+#        Button Labels Are Initial Caps
+#    - pull-down definition lines must start with TABS (not spaces)
+#    - the syntax of the pull-down definition line is:
+#
+#        Entire Project|0|0|0|$(EXEDIR)/backup PRJ 0
+#       ^           ^   ^ ^ ^       ^        ^
+#       |           |   | | |       |        |___ arguments to exectuable
+#  Num Tabs =    Button | | |       | 
+#  Cascade Level  Label | | Unused  |__ Path of executable
+#                       | |     
+#                       | When task is killed and how many copies of the
+#                       | task can be running at the same time:
+#                       |    0 = can only run one copy at a time and it
+#                       |        continues to run when Wc exits
+#                       |    1 = can only run one copy at a time and it
+#                       |        is killed when Wc exits
+#                       |    2 = can run multiple copies at the same time
+#                       |        and it continues to run when Wc exits
+#                       |    3 = can run multiple copies at the same time
+#                       |        and it is killed when Wc exits
+#                       |
+#                       |
+#                       When Button is Sensitized:
+#                              0 = always sensitized
+#                              1 = if project must be loaded
+#                              2 = if image must be loaded
+#
+#
+#
+#
+#  - Alternatively, instead of an executable, there may be
+#    a Wc keyword, such as Load_Extr or Save_Supp. 
+#  - The keyword 'not_avail' means the button is permanently dimmed
+#  - The argument 'PRJ' passed to an executable is the project
+#    name, if any, selected by the operator prior to activating the 
+#    executable
+#
+#  Rules for the user preference scheme:
+#
+#  - To pass setting files to the application, the argument 'PREF' must
+#    be specified.  Wc will automatically find the appropriate setting
+#    files and pass them to the application.  The argument 'PRJ' is no
+#    longer needed.
+#  - To pass any application specific arguments, place the exact argument
+#    values after the 'PREF' argument.  Wc will automatically place '-a'
+#    flags before these arguments to indicate to the application that 
+#    these are application specific arguments.
+#  - To indicate to the applications that rt is enabled, place the
+#    argument 'RT' after the application specific arguments.
+#
+#  For example:
+#
+#     Single|0|0|0|$(EXEDIR)/rectifier PREF single
+#                                     ^     ^ 
+#                                     |     |____ Passes "-a single" to
+#                                     |           the application
+#                                     |__________ Passes setting files to
+#                                                 the application
+#
+File|0|0|0
+	Load Project|0|1|0|Load_Project
+#	Load Extraction Images|1|1|0|Load_Extr
+	Load Images|1|1|0|Load_Images
+	Auto Loader|1|1|0|Auto_Loader
+#	Load Stereo Model|1|1|0|$(EXEDIR)/footprint 2 PRJ
+	Save Image Load Point|2|1|0|Save_Supp
+	Exit|0|0|0|Exit
+Project|0|0|0
+	Create/Edit Project|0|2|0|$(EXEDIR)/project
+	Data Review|0|0|0
+		Image Information|1|1|0|$(EXEDIR)/footprint -a image 
+		Terrain Information|1|1|0|$(EXEDIR)/footprint -a terrain 
+		Feature Information|1|1|0|$(EXEDIR)/footprint -a feature 
+	Delete|0|2|0|$(EXEDIR)/delete -p PRJ
+	Copy|0|2|0|$(EXEDIR)/copy PRJ
+	System Administration|0|0|0
+		Tape Drives|0|0|0|$(EXEDIR)/geo_ed 2 $DBDIR/DEVICE/device_config_file
+		Image Locations|0|0|0|Edit_Location_List
+		Text Fonts|0|0|0|$(EXEDIR)/geo_ed 2 $DBDIR/PREF/fonts_NT.config
+		Grid Coordinate Systems|0|0|0|$(EXEDIR)/geo_ed 2 $DBDIR/GEODETIC/grid_parameters
+	Job Queue|1|0|0|$(EXEDIR)/jobqueue PREF RT
+Preparation|0|0|0
+	Import|0|0|0
+		Image|0|0|0
+			Import/Reformat|0|2|0|$(EXEDIR)/data_convert PREF convert_image_import RT
+			TIFF-RPC|0|2|0|$(EXEDIR)/data_convert PREF convert_image_import RT
+			Ortho|0|2|0|$(EXEDIR)/data_convert PREF convert_image_import RT
+			GeoTIFF|0|2|0|$(EXEDIR)/data_convert PREF convert_image_import RT
+			DOQ|0|2|0|$(EXEDIR)/data_convert PREF convert_image_import RT
+			NITF|0|2|0|$(EXEDIR)/data_convert PREF convert_image_import RT
+			World File|0|2|0|$(EXEDIR)/data_convert PREF convert_image_import RT
+			NCDRD|0|2|0|$(EXEDIR)/data_convert PREF image_import_atm_ref RT
+			Frame|0|2|0|$(EXEDIR)/multi_frame PREF frame RT
+			BINGO Frame|0|2|0|$(EXEDIR)/multi_frame PREF framebingo RT
+#			Edit Frame Support|0|2|0|$(EXEDIR)/frame_import PREF frame
+#			Ties Frame|0|2|0|$(EXEDIR)/frame_import PREF frame RT
+			Panoramic|0|2|0|$(EXEDIR)/frame_import PREF pan RT
+#			Close Range|0|2|0|$(EXEDIR)/frame_import PREF close_range RT
+			QuickBird Basic|0|2|0|$(EXEDIR)/sat_import PREF quickbird
+			QuickBird Standard|0|2|0|$(EXEDIR)/data_convert PREF convert_image_import RT
+			WorldView Basic|0|2|0|$(EXEDIR)/sat_import PREF worldview
+			WorldView Standard|0|2|0|$(EXEDIR)/data_convert PREF convert_image_import RT
+			ADS40|0|2|0|$(EXEDIR)/sat_import PREF ads40
+			OrbView-3|0|2|0|$(EXEDIR)/sat_import PREF orbview3
+			GeoEye-1|0|2|0|$(EXEDIR)/sat_import PREF geoeye1
+			IKONOS|0|2|0|$(EXEDIR)/data_convert PREF convert_image_import RT
+#			NineK|0|2|0|$(EXEDIR)/frame_import PREF ninek RT
+			LandSat|0|2|0|$(EXEDIR)/landsat PRJ
+			SPOT DIMAP|0|2|0|$(EXEDIR)/sat_import PREF dimap
+			SPOT|0|2|0|$(EXEDIR)/spot 1 PRJ
+			JERS|0|2|0|$(EXEDIR)/spot 2 PRJ
+			IRS|0|2|0|$(EXEDIR)/spot 3 PRJ
+			RADARSAT1|0|2|0|$(EXEDIR)/sar RADARSAT_IMP PRJ
+			RADARSAT2|0|2|0|$(EXEDIR)/sat_import PREF radarsat2
+			ERS|0|2|0|$(EXEDIR)/sar ERS_IMP PRJ
+			CIB|0|2|0|$(EXEDIR)/cib_cadrg PREF cib RT
+			CADRG|0|2|0|$(EXEDIR)/cib_cadrg PREF cadrg RT
+			Formosat2|0|2|0|$(EXEDIR)/sat_import PREF formosat2
+			ALOS AVNIR2|0|2|0|$(EXEDIR)/sat_import PREF alosavnir2
+			ALOS PALSAR|0|2|0|$(EXEDIR)/sat_import PREF alospalsar
+			ALOS PRISM|0|2|0|$(EXEDIR)/sat_import PREF alosprism
+			EROS B|0|2|0|$(EXEDIR)/sat_import PREF erosb
+			ASTER|0|2|0|$(EXEDIR)/sat_import PREF aster
+			TerraSAR-X|0|2|0|$(EXEDIR)/sat_import PREF terrasarx
+			COSMO-SkyMed|0|2|0|$(EXEDIR)/sat_import PREF cosmoskymed
+			KOMPSAT-2|0|2|0|$(EXEDIR)/sat_import PREF kompsat2
+			RapidEye|0|2|0|$(EXEDIR)/sat_import PREF rapideye
+			Community Sensor Model|0|2|0|$(EXEDIR)/sat_import PREF csm_ss
+		Terrain|0|0|0
+			DTED|0|2|0|$(EXEDIR)/data_convert PREF import_dted
+			NED GridFloat|0|2|0|$(EXEDIR)/data_convert PREF import_gridfloat
+			ASCII DTM|0|2|0|$(EXEDIR)/data_convert PREF import_asc_dtm
+			DEM|0|2|0|$(EXEDIR)/data_convert PREF import_dem
+			ARC Grid|0|2|0|$(EXEDIR)/data_convert PREF import_asc_arc_grid
+			SDTS|0|2|0|$(EXEDIR)/data_convert PREF import_sdts
+			GSI|0|2|0|$(EXEDIR)/data_convert PREF import_dem_gsi
+			LIDAR|0|2|0|$(EXEDIR)/data_convert PREF import_lidar
+			GeoTIFF|0|2|0|$(EXEDIR)/data_convert PREF import_geotiff_terrain
+			NITF|0|2|0|$(EXEDIR)/data_convert PREF import_nitf_terrain
+			BIL|0|2|0|$(EXEDIR)/data_convert PREF import_bil_terrain
+			TERCOM|0|2|0|$(EXEDIR)/tercomImport
+		Features|0|0|0
+			DXF|0|2|0|$(EXEDIR)/data_convert PREF import_dxf_feature
+			ASCII (ARC_GEN)|0|2|0|$(EXEDIR)/data_convert PREF import_arc
+			ASCII|0|2|0|$(EXEDIR)/data_convert PREF import_ascii_feat
+			Shapefile|0|2|0|$(EXEDIR)/data_convert PREF import_shape
+#			DGN|0|2|0|$(EXEDIR)/convert_generic PREF import_dgn
+		ASCII Ground Points|0|2|0|$(EXEDIR)/data_convert PREF import_asc_gp
+		ASCII Image Points|0|2|0|$(EXEDIR)/data_convert PREF import_asc_ip
+		Visual Coverage Tool|0|2|0|$(EXEDIR)/start_socetlink.bat
+	Minification|0|2|0|$(EXEDIR)/minifier PREF RT
+	Image Dodge and Balance|0|2|0|$(EXEDIR)/dodger PREF
+	Interior Orientation|0|0|0
+		Automatic Interior Orientation|0|2|0|$(EXEDIR)/aio 1 PRJ
+		Manual Interior Orientation|2|1|0|$(EXEDIR)/io PRJ 1
+	Control Point Editor|0|0|0|$(EXEDIR)/gpe PRJ 1
+	Multi-Sensor Triangulation|1|1|0|$(EXEDIR)/mst PREF RT
+	Registration|0|0|0
+		DTM Registration|2|1|0|$(EXEDIR)/dtm_reg PRJ
+		Feature Registration|2|1|0|$(EXEDIR)/feature_reg
+		Map Registration|2|1|0|$(EXEDIR)/map_registration PREF
+	Resample|0|0|0
+		Rectification|0|0|0
+			Single|0|0|0|$(EXEDIR)/rectifier PREF single RT
+			Pair-Wise|0|0|0|$(EXEDIR)/rectifier PREF pairwise RT
+		Zoom/Scale|0|0|0|$(EXEDIR)/rectifier PREF scale RT
+	Build Fast Sensor Model|0|2|0|$(EXEDIR)/data_convert PREF fast_math
+	Camera Calibration|0|0|0|$(EXEDIR)/camedit
+Extraction|0|0|0
+	Terrain|0|0|0
+		Automatic Extraction|0|2|0|$(EXEDIR)/ate PREF
+		Next Generation Automatic Extraction|0|2|0|$(EXEDIR)/ngate PREF
+		Interactive Edit|2|1|0|$(EXEDIR)/ite PREF
+	Feature|0|0|0
+		Feature Specification Editor|0|0|0|$(EXEDIR)/spec_ed
+		Feature Extraction|2|1|0|$(EXEDIR)/fei PREF RT
+		Feature Database Merge|2|1|0|$(EXEDIR)/fdbm PREF
+#		Automatic Building Extraction|0|2|0|$(EXEDIR)/abe PREF RT
+	ClearFlite|2|1|0|$(EXEDIR)/clearflite PREF
+	Merge|0|2|0|$(EXEDIR)/dtm_ftr PREF RT
+	Annotation and Counting|2|1|0|$(EXEDIR)/annot PREF
+	SOCET for ArcGIS|2|1|0|$(EXEDIR)/socet_arcmap PREF RT
+	VrOne|0|0|0
+		VrOne SOCET|0|1|0|$(VRHOME)/bin/vrone_ss
+		VrOne Config|0|0|0|$(VRHOME)/bin/vrcfig_ss
+#	PRO600|0|0|0
+#		Mapping|0|1|0|$(PRO600)/bin/start_pro600 pro600 PRJ
+#		Driver|0|1|0|$(PRO600)/bin/start_pro600 prodpw
+#		PRO600 Kill|0|1|0|$(PRO600)/bin/pro600_kill
+#	CADMAP|0|0|0
+#		CADMAP With Images|1|1|0|start_cadmap 1 PRJ cadmap
+#		CADMAP Alone|1|0|0|start_cadmap 0 PRJ cadmap
+#		DXF Input|1|0|0|start_cadmap 0 PRJ dxf_in
+#		DXF Output|1|0|0|start_cadmap 0 PRJ dxf_out
+#	KORK|0|0|0
+#		XYTEST|1|0|0|start_kork PRJ xytest
+#		ORIENT|1|0|0|start_kork PRJ orient
+#		MERGE|1|0|0|start_kork PRJ merge
+#		TRACK|1|0|0|start_kork PRJ track
+Products|0|0|0
+	Orthophoto Generation|0|2|0|$(EXEDIR)/orthophoto PREF conventional RT
+	Multi-Spectral Image Sharpening|0|2|0|$(EXEDIR)/orthophoto PREF merge RT
+	Change Detection|0|2|0|$(EXEDIR)/orthophoto PREF change RT
+	Mosaic|0|0|0|
+		Mosaic|0|2|0|$(EXEDIR)/mosaicmanager PREF mosaic RT
+		Seamline Editor|0|1|0|$(EXEDIR)/fei PREF seamline RT
+		Sheet Cutter|0|2|0|$(EXEDIR)/cutter PREF RT
+	Perspective Scene|1|1|0|$(EXEDIR)/psp PRJ 1
+	Terrain Analysis|1|1|0|$(EXEDIR)/va_tsr 1
+	Image Map|0|1|0|$(EXEDIR)/hardcopy 1 PRJ
+	Map Assessment|0|1|0|$(EXEDIR)/map_assessment PREF
+	Quality Statistics|1|1|0|
+		Check Point File vs DTM File|1|1|0|$(EXEDIR)/qstat PREF 1
+		Check Point File vs Measured Point File|1|1|0|$(EXEDIR)/qstat PREF 2
+		DTM File vs DTM File|1|1|0|$(EXEDIR)/qstat PREF 3
+	Anaglyph|1|1|0|$(EXEDIR)/anaglyph
+	Line of Sight|2|1|0|$(EXEDIR)/los
+#	USMSD Generation|0|0|0
+#		Review/Edit Image Locations|0|0|0|Edit_Location_List
+#		Job Setup|0|2|0|$(EXEDIR)/job_create PREF DPPDB
+#		Import DTED|0|2|0|$(EXEDIR)/data_convert PREF import_dted
+#		Merge DTM|0|2|0|$(EXEDIR)/dtm_ftr PREF RT
+#		Import Image Support Data|1|2|0|$(EXEDIR)/import_support_data PRJ dppdb
+#		Generate USMSD|1|1|0|$(EXEDIR)/mst PREF RT
+	DPPDB Generation|0|0|0
+		Job Planning|0|0|0
+			Review/Edit Image Locations|0|0|0|Edit_Location_List
+			Job Setup|0|2|0|$(EXEDIR)/job_create PREF DPPDB
+			Import Geopositioning Job|0|2|0|$(EXEDIR)/import_geo_job
+			Rename TFRD Images|0|2|0|$(EXEDIR)/rename_images_gui
+			Stage CADRG|0|2|0|$(EXEDIR)/stage_cadrg PRJ
+			Import DTED|0|2|0|$(EXEDIR)/data_convert PREF import_dted
+			Merge DTM|0|2|0|$(EXEDIR)/dtm_ftr PREF RT
+			Import Image Support Data|1|2|0|$(EXEDIR)/import_support_data PRJ dppdb
+			Generate Footprints|0|2|0|$(EXEDIR)/lwu_generation PREF DPPDB
+			Import Assessment Imagery|0|2|0|$(EXEDIR)/import_assessment_imagery PREF dppdb
+		Segment Generation|0|2|0|$(EXEDIR)/lwu_generation PREF DPPDB
+		Create AAM|0|2|0|$(EXEDIR)/fei PREF aam RT
+		Check AAM Size|0|2|0|$(EXEDIR)/dppdb_check_aam_size PRJ
+		Create Image Segments|0|0|0
+			Create Assessment Segments|0|2|0|$(EXEDIR)/create_image_segments PREF assessment
+			Create DPPDB Product Segments|0|2|0|$(EXEDIR)/create_image_segments PREF dppdb
+			Segment Status|0|2|0|$(EXEDIR)/dppdb_status
+		Quality Assurance|0|2|0|$(EXEDIR)/dppdb_qa
+		DPPDB Image Source|0|2|0|$(EXEDIR)/image_source PREF dppdb
+		Generate DPPDB|0|2|0|$(EXEDIR)/dppdb_generation -p PRJ
+		Job Cleanup|0|2|0|$(EXEDIR)/delete -p PRJ
+	DPPDB Update|0|0|0
+		Review/Edit Image Locations|0|0|0|Edit_Location_List
+		Job Setup|0|2|0|$(EXEDIR)/job_create PREF DPPDB
+		Import DPPDB Files|0|2|0|$(EXEDIR)/import_dppdb_files -p PRJ
+		Generate DPPDB|0|2|0|$(EXEDIR)/dppdb_generation -p PRJ
+		Job Cleanup|0|2|0|$(EXEDIR)/delete -p PRJ
+	CIB Generation|0|0|0
+		Job Planning|0|0|0
+			Review/Edit Image Locations|0|0|0|Edit_Location_List
+			Job Setup|0|2|0|$(EXEDIR)/job_create PREF CIB
+			Import Geopositioning Job|0|2|0|$(EXEDIR)/import_geo_job
+			Rename TFRD Images|0|2|0|$(EXEDIR)/rename_images_gui
+			Import DTED|0|2|0|$(EXEDIR)/data_convert PREF import_dted
+			Merge DTM|0|2|0|$(EXEDIR)/dtm_ftr PREF RT
+			Review/Edit DTM|2|1|0|$(EXEDIR)/ite PREF
+			Import Image Support Data|0|2|0|$(EXEDIR)/import_support_data PRJ cib
+			Review/Edit Footprints|0|2|0|$(EXEDIR)/lwu_generation PREF OTHER
+			Import Assessment Imagery|0|2|0|$(EXEDIR)/import_assessment_imagery PREF cib
+			Stage CADRG|0|2|0|$(EXEDIR)/stage_cadrg PRJ
+		Assessment Mosaic|0|0|0
+			Assessment Mosaic Production|0|2|0|$(EXEDIR)/mosaicmanager PREF mosaic -cib -assessment RT
+			Seamline Editor|0|1|0|$(EXEDIR)/fei PREF seamline RT
+		Import CIB|0|2|0|$(EXEDIR)/cib_import
+		Create Image Segments for CIB|0|2|0|$(EXEDIR)/create_image_segments PREF cib
+		Segment Status|0|2|0|$(EXEDIR)/dppdb_status
+		Version History|0|2|0|$(EXEDIR)/cib_version_history
+		Final Mosaic|0|0|0
+			Mosaic Production|0|2|0|$(EXEDIR)/mosaicmanager PREF mosaic -cib RT
+			Sheet Cutter|0|2|0|$(EXEDIR)/cutter PRJ -s cutter_cib.set -cib -out cutter_cib.set
+		CIB Image Source|0|2|0|$(EXEDIR)/image_source PREF cib
+		Generate CIB|0|2|0|$(EXEDIR)/cib_generate
+		Merge 5-Meter Cells|0|2|0|$(EXEDIR)/cib_merge_cells
+		Update Uncompressed Product|0|0|0
+			Import Uncompressed Product|0|2|0|$(EXEDIR)/cib_import UNCOMP_PROD
+			Output Updated Uncompressed Product|0|2|0|$(EXEDIR)/cib_export_uncomp_prod -p PRJ
+		Job Cleanup|0|2|0|$(EXEDIR)/delete -p PRJ
+	Geopositioning|0|0|0
+		Job Planning
+			Review/Edit Image Locations|0|0|0|Edit_Location_List
+			Job Setup|0|2|0|$(EXEDIR)/job_create PREF DPPDB
+			Stereo Model Generation|0|2|0|$(EXEDIR)/stereo_model_gen
+			Import Geopositioning Job|0|2|0|$(EXEDIR)/import_geo_job
+			Edit TRA|0|2|0|$(EXEDIR)/tra_edit
+			Rename TFRD Images|0|2|0|$(EXEDIR)/rename_images_gui
+			Import DTED|0|2|0|$(EXEDIR)/data_convert PREF import_dted
+			Merge DTM|0|2|0|$(EXEDIR)/dtm_ftr PREF RT
+			Import Image Support Data|0|2|0|$(EXEDIR)/import_support_data PRJ dppdb
+			Import Assessment Imagery|0|2|0|$(EXEDIR)/import_assessment_imagery PREF dppdb
+			Review/Edit Footprints|0|2|0|$(EXEDIR)/lwu_generation PREF OTHER
+		Tie Point Planning
+			FDB to GPF Import/Export|0|2|0|$(EXEDIR)/fdb_to_gpf PRJ
+			Review/Edit Mensuration Plan|0|2|0|$(EXEDIR)/fei PREF RT
+			Import Bulk Patches|0|2|0|$(EXEDIR)/import_bulk
+			Import Ad Hoc Patches|0|2|0|$(EXEDIR)/adhoc_request
+			Check Patch Status|0|2|0|$(EXEDIR)/patch_status
+		Multi-Sensor Triangulation|1|1|0|$(EXEDIR)/mst PREF RT
+		Merge / Split Triangulation Files|1|1|0|$(EXEDIR)/atf_merge_split
+		Update Producer Code|1|1|0|$(EXEDIR)/ChangeGeoTIFFHeader
+	Control Generation|0|0|0
+		Job Planning
+			Review/Edit Image Locations|0|0|0|Edit_Location_List
+			Job Setup|0|2|0|$(EXEDIR)/job_create PREF DPPDB
+			Stereo Model Generation|0|2|0|$(EXEDIR)/stereo_model_gen
+			Rename TFRD Images|0|2|0|$(EXEDIR)/rename_images_gui
+			Import DTED|0|2|0|$(EXEDIR)/data_convert PREF import_dted
+			Merge DTM|0|2|0|$(EXEDIR)/dtm_ftr PREF RT
+			Import Image Support Data|0|2|0|$(EXEDIR)/import_support_data PRJ dppdb
+			Import Assessment Imagery|0|2|0|$(EXEDIR)/import_assessment_imagery PREF dppdb
+			Review/Edit Footprints|0|2|0|$(EXEDIR)/lwu_generation PREF OTHER
+		Orthophoto Generation|0|2|0|$(EXEDIR)/orthophoto PREF conventional RT
+		Mosaic|0|2|0|$(EXEDIR)/mosaicmanager PREF mosaic RT
+		Update GeoTIFF Header|1|1|0|$(EXEDIR)/ChangeGeoTIFFHeader
+Output|0|0|0
+	Reports|0|0|0|
+		Edit|0|2|0|$(EXEDIR)/geo_ed 1 PRJ
+#		Print Files|1|0|0|Print_Files
+#	Screen Dump|0|1|0|
+#		Full Screen|0|1|0|Full_Screen
+#		Single Window|0|1|0|Single_Window
+#		View Dump|0|1|0|View_Dump
+	Print Graphics|0|1|0|$(EXEDIR)/hardcopy 2 PRJ
+	File Export|0|0|0
+		Image Export/Reformat|0|2|0|$(EXEDIR)/data_convert PREF convert_image_export
+		Terrain|0|0|0
+			DTED|0|2|0|$(EXEDIR)/data_convert PREF export_dted
+			NED GridFloat|0|2|0|$(EXEDIR)/data_convert PREF export_gridfloat
+			ASCII DTM|0|2|0|$(EXEDIR)/data_convert PREF export_asc_dtm
+			DEM|0|2|0|$(EXEDIR)/data_convert PREF export_dem
+			ARC Grid|0|2|0|$(EXEDIR)/data_convert PREF export_asc_arc_grid
+			DGN Post|0|2|0|$(EXEDIR)/data_convert PREF convert_post_dgn
+			SDTS|0|2|0|$(EXEDIR)/data_convert PREF export_sdts
+			GeoTIFF|0|2|0|$(EXEDIR)/data_convert PREF export_geotiff_terrain
+			NITF|0|2|0|$(EXEDIR)/data_convert PREF export_nitf_terrain
+			TERCOM/EDIT|0|2|0|$(EXEDIR)/outputTerrain tercom
+		Features|0|0|0
+			DXF|0|2|0|$(EXEDIR)/data_convert PREF export_dxf_feature
+			ASCII (ARC_GEN)|0|2|0|$(EXEDIR)/data_convert PREF export_arc
+			ASCII (MP)|0|2|0|$(EXEDIR)/data_convert PREF export_mp_ascii_feat
+			ASCII|0|2|0|$(EXEDIR)/data_convert PREF export_ascii_feat
+			DGN Feature|0|2|0|$(EXEDIR)/data_convert PREF export_dgn
+			Shapefile|0|2|0|$(EXEDIR)/data_convert PREF export_shape
+	Rendering Engines|0|0|0
+		OpenFlight|1|0|0|$(EXEDIR)/sstoflt
+Preferences|0|0|0
+	Cursor/Graticule Editor|2|1|0|$(EXEDIR)/cursor_graticule
+	Tracking Sensitivity|0|1|0|Track_Sens
+	Graphics/Terrain Settings|2|1|0|Settings
+	Graphics Projection|2|1|0|Graphics_Projection
+#	Image Display|0|1|0|Console_Pref
+#	Printer|0|0|0|Select_Printer
+	Keyboard/Trackball Accelerator Mapping|0|0|0|Key_Map
+	Correlation Weights|1|1|0|Corr_Enh
+Tools|0|0|0
+	Y Parallax|2|1|0|Y_Parallax
+	Status Message|0|1|0|Status_Msg
+	Coordinate Measurement|1|1|0|$(EXEDIR)/coord_meas PREF
+	Animation|0|3|0|$(EXEDIR)/preview PRJ RT
+#	Hidden Facets|1|1|0|$(EXEDIR)/occlude PRJ 1
+	Radians <-> Degrees|0|1|0|$(EXEDIR)/coord_meas 1
+	Flicker Images|2|1|0|$(EXEDIR)/flicker PRJ
+	Change Elevation|2|3|0|Change_Elevation
+	DOQ Editor|0|2|0|$(EXEDIR)/doq_edit
+	CIB Viewer|0|2|0|$(EXEDIR)/cib_viewer
+	Update Image Header|0|2|0|$(EXEDIR)/ChangeImageHeader
+	Configuration Editor|0|0|0|$(EXEDIR)/conf_ed 1
+USGS Tools|0|0|0
+	Imports|0|0|0
+		Import Frame|0|1|0|$(EXEDIR)/USGS_Import_Frame_Shell
+		Import PushBroom|0|1|0|$(EXEDIR)/USGS_Import_PushBroom_Shell
+	Backup Orientation|0|1|0|$(EXEDIR)/USGS_Orientation_Backup
+	Add Vertical Control|0|1|0|$(EXEDIR)/USGS_GPF_Leveling
+	NGATE to ATE|0|1|0|$(EXEDIR)/NGATE-ATE
+	Calc Ortho Boundary|0|1|0|$(EXEDIR)/USGS_calcOrthoBdry
+	Exports|0|0|0
+		Export DEM to ISIS|0|1|0|$(EXEDIR)/USGS_Export_DEM_to_ISIS
+		Export Orthos to ISIS|0|1|0|$(EXEDIR)/USGS_Export_Orthos_to_ISIS
+	CMD Prompt|0|1|0|$(EXEDIR)/USGS_CMD
+	FOM Masking|0|1|0|$(EXEDIR)/USGS_FOM_Masking
+Help|0|0|0
+	Online Help|0|1|0|Online_Help
+	User's Manual|0|1|0|Help
+	System Administration Manual|0|1|0|Sys_Admin
+	Release Notes|0|1|0|Release_Notes
+	About SOCET SET|0|1|0|About_SocetSet

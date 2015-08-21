@@ -1,0 +1,47 @@
+# Makefile for dtm Developer's Kit examples
+# Microsoft Visual Studio 2008
+#
+# nmake NODEBUG=1 /f makefile.win
+# nmake /f makefile.win
+
+# Path to Socet Set Developer's Kit and include directories
+# This probably needs to be changed for your environment
+!if "$(DEV_KIT_PATH)" == "" 
+DEV_KIT_PATH=C:\SOCET_SET_5.6.0\devkit
+!endif
+
+# This is common stuff like names of libs
+!include <$(DEV_KIT_PATH)\include\include_dev\makefile.win>
+
+IMPORT_PUSHBROOM_COMPILE_FLAGS = \
+	$(SS_COMPILE_FLAGS)
+
+IMPORT_PUSHBROOM_EXE_NAME = \
+	$(OUTDIR)\import_pushbroom.exe
+
+IMPORT_PUSHBROOM_LINK_FLAGS = \
+	$(SS_LINK_FLAGS) \
+	/SUBSYSTEM:console
+
+IMPORT_PUSHBROOM_LINK_LIBS = \
+	$(SS_LIB_KEY) \
+	$(SS_LIB_PROJECT) \
+	$(SS_LIB_UTIL)
+
+all : $(OUTDIR) $(IMPORT_PUSHBROOM_EXE_NAME) embed_manifest
+
+embed_manifest : $(IMPORT_PUSHBROOM_EXE_NAME)
+	$(mt) -manifest "$(IMPORT_PUSHBROOM_EXE_NAME).manifest" "-outputresource:$(IMPORT_PUSHBROOM_EXE_NAME);1"
+
+$(OUTDIR) :
+	mkdir $@
+
+$(IMPORT_PUSHBROOM_EXE_NAME) : $(OUTDIR)\import_pushbroom.obj
+	$(link) $(IMPORT_PUSHBROOM_LINK_FLAGS) $(IMPORT_PUSHBROOM_LINK_LIBS) /OUT:$@ $**
+
+$(OUTDIR)\IMPORT_PUSHBROOM.obj : import_pushbroom.cpp
+	$(cc) $(IMPORT_PUSHBROOM_COMPILE_FLAGS) /Fo$@ $**
+
+clean :
+	$(CLEANUP)
+	del vc90.pdb

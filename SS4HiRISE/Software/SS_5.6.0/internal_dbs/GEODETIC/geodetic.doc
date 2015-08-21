@@ -1,0 +1,715 @@
+
+
+                                TABLE 1
+
+
+THIS IS A TABLE THAT CONTAINS LOCAL GEODETIC SYSTEM NUMBER FOR EACH LOCAL
+GEODETIC SYSTEM THAT USER CAN REFER TO WHEN HE/SHE WANTS TO TRANSFORM ANY
+LOCAL GEODETIC SYSTEM TO WGS84 GEODETIC SYSTEM.
+
+The NIMA document "Department of Defense World Geodetic System 1984,
+Its Definition and Relationships with Local Geodetic Systems",
+TR8350.2, Third Edition, Amendment 1 (3 January 2000),
+Appendices B.1 and C.1 should be consulted for correct values.
+
+Local           Local                           Reference
+Geodetic        Geodetic        Reference       ellipsoid
+system #        systems         ellipsoid       constant
+--------------------------------------------------------------------------
+1       WGS_72                  WGS_72          6378135.0
+        World_Geodetic_System_1972
+2       WGS_84                  WGS_84          6378137.0
+        World_Geodetic_System_1984
+3       ADINDAN                 Clarke_1880     6378249.145
+        Mean_Solution
+        (Ethiopia_and_Sudan)
+4       ADINDAN                 Clarke_1880     6378249.145
+        Burkina_Faso
+5       ADINDAN                 Clarke_1880     6378249.145
+        Cameroon
+6       ADINDAN                 Clarke_1880     6378249.145
+        Ethiopia
+7       ADINDAN                 Clarke_1880     6378249.145
+        Mali
+8       ADINDAN                 Clarke_1880     6378249.145
+        Senegal
+9       ADINDAN                 Clarke_1880     6378249.145
+        Sudan
+10      AFGOOYE                 Krassovsky_1940 6378245.0
+        Somalia
+11      AIN_EL_ABD_1970                         6378388.0
+        Saudi_Arabia            International_1924
+12      AIN_EL_ABD_1970                         6378388.0
+        Bahrain_Island          International_1924
+13      AMERICAN_SAMOA_1962     Clarke_1866     6378206.4
+        American_Samoa
+        Islands
+14      ANNA_1_ASTRO_1965                       6378160.0
+        Cocos_Islands           Australian_National
+15      ANTIGUA_ISLAND_ASTRO_1943               6378249.145
+        Antigua_and_Leeward     Clarke_1880
+        Islands
+16      ARC_1950                Clarke_1880     6378249.145
+        Mean_Solution
+        (Botswana,_Lesotho,
+        Malawi,_Swaziland,
+        Zaire,_Zambia_and
+        Zimbabwe)
+17      ARC_1950                Clarke_1880     6378249.145
+        Botswana
+18      ARC_1950                Clarke_1880     6378249.145
+        Burundi
+19      ARC_1950                Clarke_1880     6378249.145
+        Lesotho
+20      ARC_1950                Clarke_1880     6378249.145
+        Malawi
+21      ARC_1950                Clarke_1880     6378249.145
+        Swaziland
+22      ARC_1950                Clarke_1880     6378249.145
+        Zaire
+23      ARC_1950                Clarke_1880     6378249.145
+        Zambia
+24      ARC_1950                Clarke_1880     6378249.145
+        Zimbabwe
+25      ARC_1960                Clarke_1880     6378249.145
+        Mean_Solution
+        (Kenya_and_Tanzania)
+26      ARC_1960                Clarke_1880     6378249.145
+        Kenya
+27      ARC_1960                Clarke_1880     6378249.145
+        Tanzania
+28      ASCENSION_ISLAND_1958                   6378388.0
+        Ascension_Island        International_1924
+29      ASTRO_BEACON_'E'_1945                   6378388.0
+        Iwo_Jima                International_1924
+30      ASTRO_DOS_71/4                          6378388.0
+        St._Helena_Island       International_1924
+31      ASTRO_TERN_ISLAND_(FRIG)_1961           6378388.0
+        Tern_Island             International_1924
+32      ASTRONOMICAL_STATION_1952               6378388.0
+        Marcus_Island           International_1924
+33      AUSTRALIAN_GEODETIC_1966                6378160.0
+        Australia_and_Tasmania  Australian_National
+34      AUSTRALIAN_GEODETIC_1984                6378160.0
+        Australia_and_Tasmania  Australian_National
+35      AYABELLE_LIGHTHOUSE     Clarke_1880     6378249.145
+        Djibouti
+36      BELLEVUE_(IGN)                          6378388.0
+        Efate_and_Erromango     International_1924
+        Islands
+37      BERMUDA_1957            Clarke_1866     6378206.4
+        Bermuda_Islands
+38      BISSAU                                  6378388.0
+        Guinea-Bissau           International_1924
+39      BOGOTA                                  6378388.0
+        Colombia                International_1924
+40      BUKIT_RIMPAH            Bessel_1841     6377397.155
+        Bangka_and_Belitung
+        Islands_(Indonesia)
+41      CAMP_AREA_ASTRO                         6378388.0
+        Camp_McMurdo_Area,      International_1924
+        Antarctica
+42      CAMPO_INCHAUSPE_1969                    6378388.0
+        Argentina               International_1924
+43      CANTON_ASTRO_1966                       6378388.0
+        Phoenix_Islands         International_1924
+44      CAPE                    Clarke_1880     6378249.145
+        South_Africa
+45      CAPE_CANAVERAL          Clarke_1866     6378206.4
+        Mean_Solution_(Florida
+        and_Bahamas)
+46      CARTHAGE                Clarke_1880     6378249.145
+        Tunisia
+47      CHATHAM_ISLAND_ASTRO_1971               6378388.0
+        Chatham_Island_(New     International_1924
+        Zealand)
+48      CHUA_ASTRO                              6378388.0
+        Paraguay                International_1924
+49      CO-ORDINATE_SYSTEM_1937_OF_ESTONIA      6377397.155
+        Estonia                 Bessel_1841
+50      CORREGO_ALEGRE                          6378388.0
+        Brazil                  International_1924
+51      DABOLA                  Clarke_1880     6378249.145
+        Guinea
+52      DECEPTION_ISLAND        Clarke_1880     6378249.145
+        Deception_Island_and
+        Antarctica
+53      DJAKARTA_(BATAVIA)      Bessel_1841     6377397.155
+        Sumatra_(Indonesia)
+54      DOS_1968                                6378388.0
+        Gizo_Island_(New        International_1924
+        Georgia_Islands)
+55      EASTER_ISLAND_1967                      6378388.0
+        Easter_Island           International_1924
+56      EUROPEAN_1950                           6378388.0
+        Mean_Solution           International_1924
+        {Austria,_Belgium,
+        Denmark,_Finland,
+        France,_FRG_(Federal
+        Republic_of_Germany),
+        Gibraltar,_Greece,_Italy,
+        Luxembourg,
+        Netherlands,_Norway,
+        Portugal,_Spain,_Sweden
+        and_Switzerland}
+57      EUROPEAN_1950                           6378388.0
+        Cyprus                  International_1924
+58      EUROPEAN_1950                           6378388.0
+        Egypt                   International_1924
+59      EUROPEAN_1950                           6378388.0
+        England,_Channel        International_1924
+        Islands,_Scotland_and
+        Shetland_Islands
+60      EUROPEAN_1950                           6378388.0
+        England,_Ireland,       International_1924
+        Scotland_and_Shetland
+        Islands
+61      EUROPEAN_1950                           6378388.0
+        Greece                  International_1924
+62      EUROPEAN_1950                           6378388.0
+        Iran                    International_1924
+63      EUROPEAN_1950
+        Iraq,_Israel,_Jordan
+        Kuwait,_Lebanon,_Saudi
+        Arabia_and_Syria
+64      EUROPEAN_1950                           6378388.0
+        Italy                   International_1924
+           Sardinia
+65      EUROPEAN_1950                           6378388.0
+        Italy                   International_1924
+           Sicily
+66      EUROPEAN_1950                           6378388.0
+        Malta                   International_1924
+67      EUROPEAN_1950                           6378388.0
+        Norway_and_Finland      International_1924
+68      EUROPEAN_1950                           6378388.0
+        Portugal_and_Spain      International_1924
+69      EUROPEAN_1950                           6378388.0
+        Tunisia                 International_1924
+70      EUROPEAN_1950                           6378388.0
+        Western_Europe          International_1924
+        {Limited_to_Austria,
+        Denmark,_France,_FRG
+        (Federal_Republic_of
+        Germany),_Netherlands
+        and_Switzerland}
+71      EUROPEAN_1979                           6378388.0
+        Mean_Solution           International_1924
+        (Austria,
+        Finland,_Netherlands,
+        Norway,_Spain,_Sweden
+        and_Switzerland)
+72      FORT_THOMAS_1955        Clarke_1880     6378249.145
+        Nevis,_St._Kitts_and
+        Leeward_Islands
+73      GAN_1970                                6378388.0
+        Republic_of_Maldives    International_1924
+74      GEODETIC_DATUM_1949                     6378388.0
+        New_Zealand             International_1924
+75      GRACIOSA_BASE_SW                        6378388.0
+        Faial,_Graciosa,_Pico,  International_1924
+        Sao_Jorge_and_Terceira
+        Islands_(Azores)
+76      GUAM_1963               Clarke_1866     6378206.4
+        Guam_Island
+77      GUNUNG_SEGARA           Bessel_1841     6377397.155
+        Kalimantan_(Indonesia)
+78      GUX_1_ASTRO                             6378388.0
+        Guadalcanal_Island      International_1924
+79      HERAT_NORTH                             6378388.0
+        Afghanistan             International_1924
+80      HERMANNSKOGEL           Bessel_1841     6377397.155
+        Yugoslavia_(Prior_to
+        1990)_Slovenia,_Croatia,
+        Bosnia_and_Herzegovina
+        and_Serbia
+81      HJORSEY_1955                            6378388.0
+        Iceland                 International_1924
+82      HONG_KONG_1963                          6378388.0
+        Hong_Kong               International_1924
+83      HU-TZU-SHAN                             6378388.0
+        Taiwan                  International_1924
+84      INDIAN                  Everest_(1830)  6377276.345
+        Bangladesh
+85      INDIAN                  Everest_(1956)  6377301.243
+        India_and_Nepal
+86      INDIAN                  Everest         6377309.613
+        Pakistan
+87      INDIAN_1954             Everest_(1830)  6377276.345
+        Thailand
+88      INDIAN_1960             Everest_(1830)  6377276.345
+        Vietnam
+        (near_16N)
+89      INDIAN_1960             Everest_(1830)  6377276.345
+        Con_Son_Island
+        (Vietnam)
+90      INDIAN_1975             Everest_(1830)  6377276.345
+        Thailand
+91      INDIAN_1975             Everest_(1830)  6377276.345
+        Thailand
+92      INDONESIAN_1974         Indonesian_1974 6378160.0
+        Indonesia
+93      IRELAND_1965            Modified_Airy   6377340.189
+        Ireland
+94      ISTS_061_ASTRO_1968                     6378388.0
+        South_Georgia_Island    International_1924
+95      ISTS_073_ASTRO_1969                     6378388.0
+        Diego_Garcia            International_1924
+96      JOHNSTON_ISLAND_1961                    6378388.0
+        Johnston_Island         International_1924
+97      KANDAWALA               Everest_(1830)  6377276.345
+        Sri_Lanka
+98      KERGUELEN_ISLAND_1949                   6378388.0
+        Kerguelen_Island        International_1924
+99      KERTAU_1948             Everest_(1948)  6377304.063
+        West_Malaysia_and
+        Singapore
+100     KOREAN_GEODETIC_SYSTEM_1995             6378137.0
+        South_Korea             WGS_84
+101     KUSAIE_ASTRO_1951                       6378388.0
+        Caroline_Islands,_Fed.  International_1924
+        States_of_Micronesia
+102     L._C._5_ASTRO_1961      Clarke_1866     6378206.4
+        Cayman_Brac_Island
+103     LEIGON                  Clarke_1880     6378249.145
+        Ghana
+104     LIBERIA_1964            Clarke_1880     6378249.145
+        Liberia
+105     LUZON                   Clarke_1866     6378206.4
+        Philippines_(Excluding
+        Mindanao_Island)
+106     LUZON                   Clarke_1866     6378206.4
+        Mindanao_Island
+107     M'PORALOKO              Clarke_1880     6378249.145
+        Gabon
+108     MAHE_1971               Clarke_1880     6378249.145
+        Mahe_Island
+109     MASSAWA                 Bessel_1841     6377397.155
+        Eritrea_(Ethiopia)
+110     MERCHICH                Clarke_1880     6378249.145
+        Morocco
+111     MIDWAY_ASTRO_1961                       6378388.0
+        Midway_Islands          International_1924
+112     MINNA                   Clarke_1880     6378249.145
+        Nigeria
+113     MINNA                   Clarke_1880     6378249.145
+        Cameroon
+114     MONTSERRAT_ISLAND_ASTRO_1958            6378249.145
+        Montserrat_and_Leeward  Clarke_1880
+        Island
+115     NAHRWAN                 Clarke_1880     6378249.145
+        Saudi_Arabia
+116     NAHRWAN                 Clarke_1880     6378249.145
+        Masirah_Island_(Oman)
+117     NAHRWAN                 Clarke_1880     6378249.145
+        United_Arab_Emirates
+118     NAPARIMA,_BWI                           6378388.0
+        Trinidad_and_Tobago     International_1924
+119     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Mean_Solution
+        (CONUS)
+120     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Alaska_(Excluding
+        Aleutian_Islands)
+121     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Alberta_and_British
+        Columbia
+122     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Aleutian_Islands
+           East_of_180W
+123     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Aleutian_Islands
+           West_of_180W
+124     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Bahamas_(Excluding
+        San_Salvador_Island)
+125     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Canada_Mean_Solution
+        (Including
+        Newfoundland)
+126     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Canal_Zone
+127     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Caribbean_(Antigua
+        Island, Barbados,
+        Barbuda, Caicos
+        Islands,_Cuba,
+        Dominican_Republic,
+        Grand_Cayman,_Jamaica
+        and_Turks_Islands)
+128     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Central_America_(Belize,
+        Costa_Rica,_El_Salvador,
+        Guatemala,_Honduras
+        and_Nicaragua)
+129     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Cuba
+130     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Eastern_Canada
+        (Newfoundland,_New
+        Brunswick,_Nova_Scotia
+        and_Quebec)
+131     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Eastern_United_States
+        (Alabama,_Connecticut,
+        Delaware,_Distric_of
+        Columbia,_Florida,
+        Georgia,_Illinois,
+        Indiana,_Kentucky,
+        Louisiana,_Maine,
+        Maryland,
+        Massachusetts,
+        Michigan,_Minnesota,
+        Mississippi,_Missouri,
+        New_Hampshire,_New
+        Jersey,_New_York,
+        North_Carolina,_Ohio,
+        Pennsylvania,_Rhode
+        Island,_South_Carolina,
+        Tennessee,_Vermont,
+        Virginia,_West_Virginia
+        and_Wisconsin)
+132     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Greenland_(Hayes
+        Peninsula)
+133     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Manitoba_and_Ontario
+134     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Mexico
+135     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Northwest_Territories
+        and_Saskatchewan
+136     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        San_Salvador_Island
+137     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Western_United_States
+        (Arizona,_Arkansas,
+        Califonia,_Colorado,
+        Idaho,_Iowa,_Kansas,
+        Montana,_Nebraska,
+        Nevada,_New_Mexico,
+        North_Dakota,
+        Oklahoma,_Oregon,
+        South_Dakota,_Texas,
+        Utah,_Washington_and
+        Wyoming)
+138     NORTH_AMERICAN_1927     Clarke_1866     6378206.4
+        Yukon
+139     NORTH_AMERICAN_1983     GRS_80          6378137.0
+        CONUS
+140     NORTH_AMERICAN_1983     GRS_80          6378137.0
+        Alaska_(Excluding
+        Aleutian_Islands)
+141     NORTH_AMERICAN_1983     GRS_80          6378137.0
+        Aleutian_Islands
+142     NORTH_AMERICAN_1983     GRS_80          6378137.0
+        Canada
+143     NORTH_AMERICAN_1983     GRS_80          6378137.0
+        Hawaii
+144     NORTH_AMERICAN_1983     GRS_80          6378137.0
+        Mexico_and_Central
+        America
+145     NORTH_SAHARA_1959       Clarke_1880     6378249.145
+        Algeria
+146     OBSERVATORIO_METEOROLOGICO_1939         6378388.0
+        Corbo_and_Flores        International_1924
+        Islands_(Azores)
+147     OLD_EGYPTIAN_1907       Helmert_1906    6378200.0
+        Egypt
+148     OLD_HAWAIIAN            Clarke_1866     6378206.4
+        Mean_Solution
+149     OLD_HAWAIIAN            Clarke_1866     6378206.4
+        Hawaii
+150     OLD_HAWAIIAN            Clarke_1866     6378206.4
+        Kauai
+151     OLD_HAWAIIAN            Clarke_1866     6378206.4
+        Maui
+152     OLD_HAWAIIAN            Clarke_1866     6378206.4
+        Oahu
+153     OLD_HAWAIIAN                            6378388.0
+        Mean_Solution           International_1924
+154     OLD_HAWAIIAN                            6378388.0
+        Hawaii                  International_1924
+155     OLD_HAWAIIAN                            6378388.0
+        Kauai                   International_1924
+156     OLD_HAWAIIAN                            6378388.0
+        Maui                    International_1924
+157     OLD_HAWAIIAN                            6378388.0
+        Oahu                    International_1924
+158     OMAN                    Clarke_1880     6378249.145
+        Oman
+159     ORDNANCE_SURVEY_OF_GREAT_BRITAIN_1936   6377563.396
+        Mean_Solution           Airy_1830
+        (England,_Isle_of_Man,
+        Scotland,_Shetland
+        Islands,_and_Wales)
+160     ORDNANCE_SURVEY_OF_GREAT_BRITAIN_1936   6377563.396
+        England                 Airy_1830
+161     ORDNANCE_SURVEY_OF_GREAT_BRITAIN_1936   6377563.396
+        England,_Isle_of_Man    Airy_1830
+        and_Wales
+162     ORDNANCE_SURVEY_OF_GREAT_BRITAIN_1936   6377563.396
+        Scotland_and_Shetland   Airy_1830
+        Islands
+163     ORDNANCE_SURVEY_OF_GREAT_BRITAIN_1936   6377563.396
+        Wales                   Airy_1830
+164     PICO_DE_LAS_NIEVES                      6378388.0
+        Canary_Islands          International_1924
+165     PITCAIRN_ASTRO_1967                     6378388.0
+        Pitcairn_Island         International_1924
+166     POINT_58                Clarke_1880     6378249.145
+        Mean_Solution_(Burkina
+        Faso_and_Niger)
+167     POINTE_NOIRE_1948       Clarke_1880     6378249.145
+        Congo
+168     PORTO_SANTO_1936                        6378388.0
+        Porto_Santo_and         International_1924
+        Madeira_Islands
+169     PROVISIONAL_SOUTH_AMERICAN_1956         6378388.0
+        Mean_Solution_(Bolivia, International_1924
+        Chile,_Colombia,
+        Ecuador,_Guyana,_Peru
+        and_Venezuela)
+170     PROVISIONAL_SOUTH_AMERICAN_1956         6378388.0
+        Bolivia                 International_1924
+171     PROVISIONAL_SOUTH_AMERICAN_1956         6378388.0
+        Chile                   International_1924
+           Northern_Chile_(near
+           19S)
+172     PROVISIONAL_SOUTH_AMERICAN_1956         6378388.0
+        Chile                   International_1924
+           Southern_Chile_(near
+           43S)
+173     PROVISIONAL_SOUTH_AMERICAN_1956         6378388.0
+        Colombia                International_1924
+174     PROVISIONAL_SOUTH_AMERICAN_1956         6378388.0
+        Ecuador                 International_1924
+175     PROVISIONAL_SOUTH_AMERICAN_1956         6378388.0
+        Guyana                  International_1924
+176     PROVISIONAL_SOUTH_AMERICAN_1956         6378388.0
+        Peru                    International_1924
+177     PROVISIONAL_SOUTH_AMERICAN_1956         6378388.0
+        Venezuela               International_1924
+178     PROVISIONAL_SOUTH_CHILEAN_1963          6378388.0
+        Southern_Chile_(near    International_1924
+        53S)
+179     PUERTO_RICO             Clarke_1866     6378206.4
+        Puerto_Rico_and_Virgin
+        Islands
+180     PULKOVO_1942            Krassovsky_1940 6378245.0
+        Russia
+181     QATAR_NATIONAL                          6378388.0
+        Qatar                   International_1924
+182     QORNOQ                                  6378388.0
+        South_Greenland         International_1924
+183     REUNION                                 6378388.0
+        Mascarene_Islands       International_1924
+184     ROME_1940                               6378388.0
+        Sardinia                International_1924
+185     S-42_(PULKOVO_1942)     Krassovsky_1940 6378245.0
+        Albania
+186     S-42_(PULKOVO_1942)     Krassovsky_1940 6378245.0
+        Czechoslovakia
+187     S-42_(PULKOVO_1942)     Krassovsky_1940 6378245.0
+        Hungary
+188     S-42_(PULKOVO_1942)     Krassovsky_1940 6378245.0
+        Kazakhstan
+189     S-42_(PULKOVO_1942)     Krassovsky_1940 6378245.0
+        Latvia
+190     S-42_(PULKOVO_1942)     Krassovsky_1940 6378245.0
+        Poland
+191     S-42_(PULKOVO_1942)     Krassovsky_1940 6378245.0
+        Romania
+192     S-JTSK                  Bessel_1841     6377397.155
+        Czechoslovakia
+193     SANTO_(DOS)_1965                        6378388.0
+        Espirito_Santo_Island   International_1924
+194     SAO_BRAZ                                6378388.0
+        Sao_Miguel_and_Santa    International_1924
+        Maria_Islands_(Azores)
+195     SAPPER_HILL_1943                        6378388.0
+        East_Falkland_Island    International_1924
+196     SCHWARZECK              Bessel_1841     6377483.865
+        Namibia
+197     SELVAGEM_GRANDE_1938                    6378388.0
+        Salvage_Islands         International_1924
+198     SIERRA_LEONE_1960       Clarke_1880     6378249.145
+        Sierra_Leone
+199     SOUTH_AMERICAN_1969                     6378160.0
+        Mean_Solution           South_American_1969
+        (Argentina,_Bolivia,
+        Brazil,_Chile,_Colombia,
+        Ecuador,_Guyana,
+        Paraguay,_Peru,
+        Trinidad_and_Tobago
+        and_Venezuela)
+200     SOUTH_AMERICAN_1969                     6378160.0
+        Argentina               South_American_1969
+201     SOUTH_AMERICAN_1969                     6378160.0
+        Baltra_and_Galapagos    South_American_1969
+        Islands
+202     SOUTH_AMERICAN_1969                     6378160.0
+        Bolivia                 South_American_1969
+203     SOUTH_AMERICAN_1969                     6378160.0
+        Brazil                  South_American_1969
+204     SOUTH_AMERICAN_1969                     6378160.0
+        Chile                   South_American_1969
+205     SOUTH_AMERICAN_1969                     6378160.0
+        Columbia                South_American_1969
+206     SOUTH_AMERICAN_1969                     6378160.0
+        Ecuador_(Excluding      South_American_1969
+        Galapagos_Islands)
+207     SOUTH_AMERICAN_1969                     6378160.0
+        Guyana                  South_American_1969
+208     SOUTH_AMERICAN_1969                     6378160.0
+        Paraguay                South_American_1969
+209     SOUTH_AMERICAN_1969                     6378160.0
+        Peru                    South_American_1969
+210     SOUTH_AMERICAN_1969                     6378160.0
+        Trinidad_and_Tobago     South_American_1969
+211     SOUTH_AMERICAN_1969                     6378160.0
+        Venezuela               South_American_1969
+212     SOUTH_AMERICAN_GEOCENTRIC_REFERENCE_SYSTEM_(SIRGAS)
+        South_America           GRS_80          6378137.0
+213     SOUTH_ASIA                              6378155.0
+        Singapore               Modified_Fischer_1960
+214     TANANARIVE_OBSERVATORY_1925             6378388.0
+        Madagascar              International_1924
+215     TIMBALAI_1948           Everest         6377298.556
+        Brunei_and_East
+        Malaysia
+        (Sarawak_and
+        Sabah)
+216     TOKYO                   Bessel_1841     6377397.155
+        Mean_Solution_(Japan,
+        Okinawa_and_South
+        Korea)
+217     TOKYO                   Bessel_1841     6377397.155
+        Japan
+218     TOKYO                   Bessel_1841     6377397.155
+        Okinawa
+219     TOKYO                   Bessel_1841     6377397.155
+        South_Korea
+220     TOKYO                   Bessel_1841     6377397.155
+        South_Korea
+221     TRISTAN_ASTRO_1968                      6378388.0
+        Tristan_da_Cunha        International_1924
+222     VITI_LEVU_1916          Clarke_1880     6378249.145
+        Viti_Levu_Island_(Fiji
+        Islands)
+223     VOIROL_1874             Clarke_1880     6378249.145
+        Tunisia_and_Algeria
+224     VOIROL_1960             Clarke_1880     6378249.145
+        Algeria
+225     WAKE-ENIWETOK_1960      Hough_1960      6378270.0
+        Marshall_Islands
+226     WAKE_ISLAND_ASTRO_1952                  6378388.0
+        Wake_Atoll              International_1924
+227     YACARE                                  6378388.0
+        Uruguay                 International_1924
+228     ZANDERIJ                                6378388.0
+        Suriname                International_1924
+229     BESSEL-GERMANY                          6377397.155
+        Germany                 Bessel_1841
+230     KKJ                                     6378388.0
+        Finland                 International_1924
+231     GRS_80                                  6378137.0
+        Slovenia                Geodetic_Reference_System_1980
+232     SWISS_DATUM_1903                        6377397.155
+        Switzerland             Bessel_1841
+233     Adrastea2006            Adrastea2006             8200.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+234     Amalthea2006            Amalthea2006            83500.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+235     Ananke2006              Ananke2006              10000.0
+236     Ariel2006               Ariel2006              578900.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+237     Atlas2006               Atlas2006               16000.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+238     Belinda2006             Belinda2006             33000.0
+239     Bianca2006              Bianca2006              21000.0
+240     Callisto2006            Callisto2006          2409300.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+241     Calypso2006             Calypso2006              9500.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+242     Carme2006               Carme2006               15000.0
+243     Cordelia2006            Cordelia2006            13000.0
+244     Cressida2006            Cressida2006            31000.0
+245     Desdemona2006           Desdemona2006           27000.0
+246     Despina2006             Despina2006             74000.0
+247     Dione2006               Dione2006              561700.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+248     Elara2006               Elara2006               40000.0
+249     Enceladus2006           Enceladus2006          252100.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+250     Epimetheus2006          Epimetheus2006          59500.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+251     Eros                    Eros                   218000.0
+        (circa 19xx Figure used for Socet Set Mapping)
+252     Europa2006              Europa2006            1562090.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+253     Galatea2006             Galatea2006             79000.0
+254     Ganymede2006            Ganymede2006          2632345.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+255     Helene2006              Helene2006              16000.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+256     Himalia2006             Himalia2006             85000.0
+257     Hyperion2006            Hyperion2006           133000.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+258     Iapetus2006             Iapetus2006            735600.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+259     Io2006                  Io2006                1821460.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+260     Janus2006               Janus2006               88800.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+261     Juliet2006              Juliet2006              42000.0
+262     Larissa2006             Larissa2006             96000.0
+263     Leda2006                Leda2006                 5000.0
+264     Lysithea2006            Lysithea2006            12000.0
+265     Mars2000                Mars2000              3396190.0
+266     Mars2000_MOLA_SPHERE    Mars2000_MOLA_SPHERE  3396000.0
+       (Mars_MOLA w/ truncated spherical axes)
+267     Mercury_MSGR            Mercury_MSGR          2440000.0
+       (Mercury Team Reference Spheriod)
+268     Metis2006               Metis2006               21500.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+269     Mimas2006               Mimas2006              198200.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+270     Miranda2006             Miranda2006            235800.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+271     Moon2000                Moon2000              1737400.0
+272     Naiad2006               Naiad2006               29000.0
+273     Nereid2006              Nereid2006             170000.0
+274     Oberon2006              Oberon2006             761400.0
+275     Ophelia2006             Ophelia2006             15000.0
+276     Pan2006                 Pan2006                 10000.0
+277     Pandora2006             Pandora2006             41900.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+278     Pasiphae2006            Pasiphae2006            18000.0
+279     Phoebe2006              Phoebe2006             106700.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+280     Portia2006              Portia2006              54000.0
+281     Prometheus2006          Prometheus2006          50100.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+282     Proteus2006             Proteus2006            208000.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+283     Puck2006                Puck2006                77000.0
+284     Rhea2006                Rhea2006               764300.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+285     Rosalind2006            Rosalind2006            27000.0
+286     Sinope2006              Sinope2006              14000.0
+287     Telesto2006             Telesto2006             11000.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+288     Tethys2006              Tethys2006             533000.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+289     Thalassa2006            Thalassa2006            40000.0
+290     Thebe2006               Thebe2006               49300.0
+	  (IAU 2006 Cartographic Reference Spheriod)
+291     Titan2000               Titan2000             2575000.0
+292     Titania2006             Titania2006            788900.0
+293     Triton2006              Triton2006            1352600.0
+294     Umbriel2006             Umbriel2006            584700.0
+295     Venus1985               Venus1985             6051000.0
+296     Venus2000               Venus2000             6051800.0
+297     Wild2                   Wild2                    2425.0
+        (circa 2004 Figure used for Socet Set Mapping)

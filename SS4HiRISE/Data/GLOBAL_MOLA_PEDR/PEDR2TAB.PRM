@@ -1,0 +1,21 @@
+T # lhdr
+T # 0: shot longitude, latitude, topo, range, planetary_radius,ichan,aflag
+F # 1: MGS_longitude, MGS_latitude, MGS_radius
+T # 2: offnadir_angle, EphemerisTime, areodetic_lat,areoid
+T # 3: ishot, iseq, irev, gravity model number
+F # 4: local_time, solar_phase, solar_incidence
+F # 5: emission_angle, Range_Correction,Pulse_Width_at_threshold,Sigma_optical,E_laser,E_recd,Refl*Trans
+F # 6: bkgrd,thrsh,ipact,ipwct
+F # 7: range_window, range_delay
+F #   All shots, regardless of shot_classification_code
+T # F = noise or clouds, T = ground returns
+T # do crossover correction
+T "PhxBox1_2.tab" # OneBigFile, output file template(must be enclosed in quotes).
+
+234.0   # ground_longitude_min
+236.0   # ground_longitude_max
+67.0   # ground_latitude_min
+69.0     # ground_latitude_max
+
+169.8944472	# flattening used for IAU2000 areographic latitude
+
