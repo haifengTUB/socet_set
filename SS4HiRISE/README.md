@@ -37,7 +37,7 @@ SECTION 1: OVERIVIEW
           compilers on your ISIS processing machine.
 
     3) Tutorials\
-          PDFs and TUTORIALS_JULY2015.zip contains the tutorial 
+          PDFs and TUTORIALS.zip contains the tutorial 
           presentations describing our stereo processing procedures using 
           HiRISE images, ISIS3 and SOCET SET v5.6.0 
 
@@ -52,7 +52,7 @@ Section 2: DISTRIBUTION FILES CONTENTS
    SOCET SET source code for our non-proprietary software is provided for
    reference in folder SS_5.6.0/SOURCE_CODE.  The source code provided for
    the ISIS machine will require compilation at your facility using the
-   GNU FORTRAN or C compilers.  See the documents in TUTORIALS_JULY2015.zip
+   GNU FORTRAN or C compilers.  See the documents in TUTORIALS.zip
    for details on software use and procedures for stereo processing.
 
    --------
@@ -154,7 +154,7 @@ Section 2: DISTRIBUTION FILES CONTENTS
    ----------------------
    Tutorials
    ----------------------
-      HiRISE_StereoProcessing_Tutorial_July_2015.pdf
+      HiRISE_StereoProcessing_Tutorial_Aug_2015.pdf
       SOCETSET_for_HiRISE_July_2015_Intro.pdf
       SOCETSET_for_HiRISE_July_2015_Training.pdf
       
