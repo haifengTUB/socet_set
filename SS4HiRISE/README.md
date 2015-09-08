@@ -11,6 +11,8 @@ Table of Contents:
    Section 3: ISIS Machine Set-Up
    Section 4: SOCET SET Workstation Set-Up
 
+To easily download all these files, you grab this github repository from [here] (https://github.com/USGS-Astrogeology/socet_set). Use the "Download Zip" button on right-side of page.
+
 ====================
 SECTION 1: OVERIVIEW
 ====================
