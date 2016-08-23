@@ -1,0 +1,216 @@
+NGATE Default Strategy
+VERSION			1
+NUM_PASSES         	3
+COLOR_BALANCE           0
+SAME_STRIP_WEIGHT       4
+KEEP_RSET4              0
+ADAPT_RSET              0
+RECTIFY_METHOD          0
+IMG_REC_TILE_SIZE       48
+COMBINE_BANDS           0     
+MOVING_OBJ_DIM          0
+URBAN_CANYON            0
+POSITIVE_SLOPE_IN_DEGREE -1
+FEATHER_BLOCK_EFFECT    8
+IMAGE_STRETCH           1
+
+-# The VERSION is determined by the software. Users should not
+-# change the VERSION.
+-#
+-# The NUM_PASSES can be changed. The number of INT_STRAT* and DOUBLE_STRAT*
+-# should match the NUM_PASSES. 
+-#
+-# The COLOR_BALANCE is for balancing 3 band red/green/blue color images such 
+-# that these images can be used to produce more color balanced mosaic. The color
+-# balanced images will have the same name as the original image name adding
+-# "_color_balance_ngate.tif". The format is always tiff. This option is only 
+-# applicable to 3 bands color images with image depth equaling to 1. That is 
+-# 8 bits image. The default value is 0 indicating no color balancing.  
+-# To perform color balancing, set the value to 1. 
+-#
+-# The SAME_STRIP_WEIGHT. For very large scale frame imagery, shadow edges may
+-# shift significantly. This shift may cause the matched points floating
+-# or underground. For example, a tree with no leaf on it
+-# casts a shadow onto a parking lot. The stereo from differnet strips
+-# may have floating shadow edges. When same strip weight > 0, NGATE uses
+-# the conventional strip number to make sure that images from the
+-# same strip has higher weight. For example, 1_512.sup and 1_513 will
+-# be considered from the same strip and have higher weight when
+-# determining best image pairs. The suggested values are
+-#     0 -- default value
+-#     1 -- Same strip is considered
+-#     2 -- Same strip is important
+-#     3 -- Same strip is very important and a big factor in the best image
+-#          pair selection
+-# In the future, we should always store the actual date/time of the image
+-# in the .sup file. At that point, this parameter will become obsolete.
+-# 
+-# The KEEP_RSET4 -- keep match results from R Set 4 when the last pass is 1:1
+-# If the last pass is 2:1, NGATE always keep results from 4:1.
+-# For some posts, the matching at 4:1 may be successful and the matching
+-# at 2:1 or 1:1 may fail. In the final DTM, we may or may not keep the
+-# results from 4:1. There are pros and cons of keeping results from
+-# 4:1. The cons are that those posts may not have high precision. The
+-# pros are that those posts may have a more appropriate elevation than
+-# interpolated elevation. We suggest that in natural terrain, we should
+-# keep results from 4:1. In urban areas, we should not. However, in some
+-# cases, this recommendation may not suit your purposes.  1 for YES, and
+-# 0 for NO.
+-#
+-# The ADAPT_RSET is for NGATE to determine which minification level to
+-# to stop. Some frame imagery may be scanned at very high resolution
+-# (20,000 x 20,000 pixels). In this case, NGATE at 1:1 minifcation
+-# does not generate much better results, but takes a long time. For
+-# non-frame imagery, this parameter is ignored. 1 for YES and 0 for NO.
+-# This parameter is for film frame imagery only. The default value is 0.
+-#
+-# The RECTIFY_METHOD has three valid values: 
+-#    0 -- use DTM block center point to shape the transformation and ground to image 
+-#    1 -- use the center point of left image to shape the transformation
+-#    2 -- use the center point of left image to shape the transformation and at
+-#         the same time, use the Ground to Image to perform the rectification
+-#    3 -- use all (0), (1), and (2)
+-#
+-# The following 20 integers control the NGATE as:
+-#
+-# 1. Image correlation window size. Must be odd numbers. 
+-#    Suggested values are 7, 9, 11, 13, 15, 17.
+-#    The speed of NGATE decreases when the window size increases.
+-#    For flat terrain, the window size should be larger than for
+-#    steep terrain.
+-# 2. Edge matching window size in line dimension. Must be odd number.
+-# 3. Edge matching window size in sample dimension. Must be odd number.
+-#    Edge matching is designed to capture elevation discontinuities such
+-#    as buildings and houses. Because of elevation discontinuities, 
+-#    we should use a smaller window size. On the other hand, too small a
+-#    a window size may produce lots of false matches. The compromise is
+-#    that the window is not a sqaure. Instead, it is a rectangle. In the
+-#    line dimension, the size is larger than the size in the sample 
+-#    dimension. The line and smample dimensions are based on the image
+-#    patches after pairwise rectifications. Suggested values are:
+-#    7x5, 9x7, 9x5, 11x7, 11x9, etc.
+-#    Parameter 2 and 3 are not changed by the software.  
+-# 4. Image correlation search distance. 
+-#    The search distance should be larger for steep terrain and smaller
+-#    for flat terrain. The speed of NGATE decreases when the search distance
+-#    increases. The suggested values are from 7 to 19.   
+-# 5. Edge matching search distance.
+-#    This number should normally be smaller than the image search distance.
+-#    It should be larger for steep terrain and smaller for flat terrain.
+-#    In urban areas, even when the terrain is flat, this number should not
+-#    be too small in order to match houses and buildings. 
+-# 6. Minification level of the current pass.
+-#    Make sure that the specified minification level images are available.
+-#    Otherwise, NGATE bails out.
+-# 7. Edge pixel cutoff value. Value greater is considered edge pixel.
+-#    The default value is 9. If there are too many edge matched points,
+-#    we should make this number larger. If there are many missing
+-#    edges, we should lower this number.   
+-# 8. Positive spike slope limit in degree (0-89)
+-# 9. Negative spike slope limit in degree (0-89)
+-# 10. Slope limit in degree (0-89)
+-# 11. NGATE options. 0 -- use both image correlation and edge matching.
+-#                    1 -- use only image correlation.
+-#                    2 -- use only edge matching.
+-#     In natural terrain without buildings and houses, option 1 with
+-#     image correlation only may be good enough because it is faster than
+-#     option 0. Option 2 is rarely used. It is for research and testing
+-#     purposes.
+-# 12. Smaller window size reduction for image match. This number must be
+-#     even numbers. The actual window size = parameter_1 - parameter_12.
+-#     Make sure that the actual window size is at least 5. Suggested
+-#     values are 0, 2, 4, 6. When the value is 0, it indicates NOT to use
+-#     a smaller window size for image correlation. The smaller window size
+-#     is designed to work in urban areas where there are lots of elevation
+-#     discontinuities such as buildings and houses.  
+-# 13. Largest Y parallax search distance. 
+-#     When there are Y parallax even after rectification, we set this
+-#     parameter to > 0. When there is no Y parallax, this parameter should
+-#     be 0. In most cases even with Y parallax, we may only set its value
+-#     to be > 0 for the last pass. Suggested values are 1 to 3. If the Y parallex
+-#     is greater than 3 pixels, you should re-triangulate your images.  
+-# 14. NGATE determines if this is an urban area and need to use a smaller
+-#     window. If parameter 12 is not zero, this parameter
+-#     does not matter. It is used only when parameter 12 is 0. 1 for YES and
+-#     0 for NO. 
+-# 15. NGATE determines image correlation strategies adaptively. Similar to
+-#     the Adaptive ATE. But uses a different method (hopefully better method).
+-#     These parameters are parameter 1 and 4. 1 for YES and 0 for NO. 
+-# 16. NGATE determines parameters 8, 9, and 10 when set to 1. 
+-#     When set to 0, NGATE uses parameters of 8, 9, 10 from this file.
+-# 17. Image buffer size. The suggested values should be:
+-#     128, 160, 192, 224, 256, 288, 320.
+-#     Smaller image buffer size may generate more accurate results at
+-#     the expense of longer computing.
+-#     For satellite images or small scale images, the image buffer size can
+-#     be much larger. The image buffer size has direct impact on the
+-#     epipolar resampling because NGATE uses one set of parameters to perform
+-#     epipolar resampling for the entire image buffer. This approach is an
+-#     an approximation and it is dependent on the image buffer size amnong
+-#     other factors.   
+-# 18. Cutoff value for isolated edge pixels. In the edge matching window, when the
+-#     center pixel is an edge pixel, we count the number edge pixels.
+-#     If precent of the edge pixels is smaller than 
+-#     this number, the edge pixel is considered an isolated edge pixel and
+-#     we set its value to 0 or non edge pixel. The range is from 50 to 100. The
+-#     default value is 55
+-# 19. Back match on/off. 1 for on which is the default. 0 for off.
+-#     In some cases, the back match option may filter out some good points.
+-#     Turn it off will generate more points. On the other hand, without
+-#     back match, the generated DTM may have more blunders. If your DTM does
+-#     not have blunders, you should turn back match off. If your DTM have many
+-#     blunders, you should turn back match on.
+-# 20. Interpolation method of non-matched point. 0 -- use TIN linear interpolation (default)
+-#                                                1 -- use nearest matched post (for urban areas)
+-#                                                2 -- use GRID linear interpolation
+-# Each line has parameters for each pass.
+-# Always start from INT_STRAT0 to INT_STRATn where n is the last
+-# pass such as 5, 6, 7, etc.
+-#
+-#              1  2 3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+
+INT_STRAT0	15 9 7 15 15 4  10 20 10 60 1  0  0  1  1  1 224 55  1  0
+INT_STRAT1	15 9 7 15 15 2  9  20 10 60 1  0  0  1  1  1 224 55  1  0
+INT_STRAT2	15 9 7 15 15 1  9  20 10 60 1  0  0  1  1  1 224 55  1  0
+
+-# The following 15 doubles control the NGATE as:
+-# 1.  Image correlation good neighbor cutoff value. 
+-# 2.  Edge matching good neighbor cutoff value.
+-# 3.  Image correlation FOM cutoff value. 
+-# 4.  Edge matching FOM cutoff value.
+-# 5.  Signal power cutoff value.
+-#     In desert areas, this value should be small from 2 to 8.
+-#     In other areas, the suggested values are from 3 to 10. If there are
+-#     still points on water bodies, you need to increase this value.
+-#     If your image is of high radiometric quality, you can use samller value.
+-#     If your image is noisy, you should use larger value.  
+-#     
+-# 6.  Large signal power cutoff value.
+-# 7.  Image correlation back matching cutoff value.
+-# 8.  Edge matching back matching cutoff value.
+-# 9.  X parallax difference cutoff value.
+-#        Suggested values: 0.5 - 1.0.
+-#        1.0 is for extremely steep terrain or urban areas with houses
+-#        and buildings.
+-#        It is the ratio of the difference of x parallax vs.
+-#        the difference of samples.
+-#     In other words, it is similar to the HIGH_SLOPE detection that
+-#     uses the slope limit in degree (0-89). 
+-# 10. Minimum correlation coefficient difference.
+-#     For noise images or images not well triangulated, we may increase this
+-#     value at the last two passes. Or if there are blunders, we may increase
+-#     this value to remove some of the blunders. Suggested values:
+-#        0.155 to 0.25
+-# 11. Maximum percent edge value difference / 100.
+-# 12. Signal power difference cutoff value.
+-# 13. Second peak difference cutoff.
+-# 14. Rough terrain lower FOM cutoff value.
+-# 15. Invalid precision distance factor. The default value is 45. 
+-#     To assign more invalid precision 32767 to posts which are not directly measured,
+-#     you need to decrease this number. 
+-#
+-#              1    2    3    4    5    6    7   8   9   10    11   12   13   14   15
+
+DOUBLE_STRAT0	0.30 0.20 0.70 0.75 5.0 68.0 3.0 3.0 1.0 0.165 0.45 9.24 0.10 0.16 45.0
+DOUBLE_STRAT1	0.30 0.20 0.70 0.75 4.0 96.0 3.0 3.0 1.0 0.160 0.50 9.24 0.10 0.18 45.0
+DOUBLE_STRAT2	0.30 0.20 0.70 0.75 3.5 192.0 3.0 3.0 1.0 0.155 0.55 9.24 0.10 0.20 45.0
