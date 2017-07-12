@@ -1,0 +1,40 @@
+camera_calibration_file 1
+
+#Focal Length (mm)
+FOCAL 76.080000
+
+#Principal Point Offset xpoff ypoff in mm
+XPOFF -6.000000e-003
+YPOFF -2.000000e-003
+
+#Principal Point symmetry xsoff ysoff in mm
+XSOFF -6.000000e-003
+YSOFF -2.000000e-003
+
+#How many fiducial pairs (max 8):
+NUM_FIDS 4
+
+#Fiducials position
+DATA_STRIP_SIDE left
+
+#Fiducial x,y pairs in mm:
+FID_PAIRS
+   56.000000 0.000000
+   -56.000000 0.000000
+   0.000000 56.000000
+   0.000000 -56.000000
+
+#Symmetrical Lens Distortion Odd-order Poly Coeffs:K0,K1,K2,K3
+SYM_DIST 0.000000e+000   1.336185e-006   -5.226175e-010   5.072833e-014
+
+#Decentering Lens Coeffs p1,p2,p3
+DEC_DIST -9.605773e-008   -5.411222e-007   0.000000e+000
+
+#How many distortion pairs (max 20):
+NUM_DIST_PAIRS 0
+
+#Distortion Data Units (m=radial dist im mm, d=field angle in deg):
+DIST_UNITS m
+
+#Distortion Data Pairs, if any (Radius in mm or deg, Distortion in Microns)
+DIST_PAIRS
